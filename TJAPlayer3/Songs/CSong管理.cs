@@ -951,43 +951,6 @@ namespace TJAPlayer3
 			if( ノードリスト.Count > 0 )
 			{
 				C曲リストノード itemRandom = new C曲リストノード();
-				itemRandom.eノード種別 = C曲リストノード.Eノード種別.RANDOM;
-				itemRandom.strタイトル = "ランダムに曲をえらぶ";
-				itemRandom.nスコア数 = (int)Difficulty.Total;
-				itemRandom.r親ノード = ノードリスト[ 0 ].r親ノード;
-                
-                itemRandom.strBreadcrumbs = ( itemRandom.r親ノード == null ) ?
-					itemRandom.strタイトル :  itemRandom.r親ノード.strBreadcrumbs + " > " + itemRandom.strタイトル;
-
-				for( int i = 0; i < (int)Difficulty.Total; i++ )
-				{
-					itemRandom.arスコア[ i ] = new Cスコア();
-					itemRandom.arスコア[ i ].譜面情報.タイトル = string.Format( "< RANDOM SELECT Lv.{0} >", i + 1 );
-					itemRandom.arスコア[i].譜面情報.コメント =
-						 (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ja") ?
-						 string.Format("難易度レベル {0} 付近の曲をランダムに選択します。難易度レベルを持たない曲も選択候補となります。", i + 1) :
-						 string.Format("Random select from the songs which has the level about L{0}. Non-leveled songs may also selected.", i + 1);
-					itemRandom.ar難易度ラベル[ i ] = string.Format( "L{0}", i + 1 );
-				}
-				ノードリスト.Add( itemRandom );
-
-				#region [ ログ出力 ]
-				//-----------------------------
-				if( TJAPlayer3.ConfigIni.bLog曲検索ログ出力 )
-				{
-					StringBuilder sb = new StringBuilder( 0x100 );
-					sb.Append( string.Format( "nID#{0:D3}", itemRandom.nID ) );
-					if( itemRandom.r親ノード != null )
-					{
-						sb.Append( string.Format( "(in#{0:D3}):", itemRandom.r親ノード.nID ) );
-					}
-					else
-					{
-						sb.Append( "(onRoot):" );
-					}
-					sb.Append( " RANDOM" );
-					Trace.TraceInformation( sb.ToString() );
-				}
 				//-----------------------------
 				#endregion
 			}
