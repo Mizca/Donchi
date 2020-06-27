@@ -1057,7 +1057,6 @@ namespace TJAPlayer3
 			#endregion
 		}
 		//-----------------
-		#endregion
 		#region [ スコアキャッシュをSongsDBに出力する ]
 		//-----------------
 		public void tスコアキャッシュをSongsDBに出力する( string SongsDBファイル名 )
